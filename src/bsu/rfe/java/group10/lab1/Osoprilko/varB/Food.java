@@ -18,7 +18,7 @@ public abstract class Food implements Consumable, Nutritious
 
     @Override
     public String toString() {
-        return super.toString();
+        return name;
     }
 
     public String getName()

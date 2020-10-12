@@ -9,26 +9,21 @@ public class MainApplication {
         int itemsSoFar = 0;
         for (String arg : args) {
             String[] parts = arg.split("/");
-            if (parts[0].startsWith("-"))
-            {
-                if (parts[0].equals("-calories"))
-                {
+            if (parts[0].startsWith("-")) {
+                if (parts[0].equals("-calories")) {
                     needCalories = true;
                 }
-                if (parts[0].equals("-sort"))
-                {
+                if (parts[0].equals("-sort")) {
                     needSort = true;
                 }
                 continue;
             }
-            if (parts[0].equals("Cheese"))
-            {
+            if (parts[0].equals("Cheese")) {
                 breakfast[itemsSoFar] = new Cheese();
-            } else if (parts[0].equals("Apple"))
-            {
+            } else if (parts[0].equals("Apple")) {
                 breakfast[itemsSoFar] = new Apple(parts[1]);
-            } else if( parts[0].equals("Pie")){
-                breakfast[itemsSoFar]=new Pie(parts[1]);
+            } else if (parts[0].equals("Pie")) {
+                breakfast[itemsSoFar] = new Pie(parts[1]);
             }
             itemsSoFar++;
         }
@@ -38,10 +33,14 @@ public class MainApplication {
                 if (needCalories)
                     totalCalories += item.calculateCalories();
                 item.consume();
-            }
-            else
+            } else
                 break;
-        Arrays.sort(breakfast, new FoodComparator());
+        FoodComparator compare = new FoodComparator();
+        for (Food item : breakfast)
+            if (item != null) {
+                compare.compare(breakfast[0],breakfast[1]);
+            }
+
         System.out.println("Общее число калорий: " + totalCalories);
         System.out.println("Всего хорошего!");
     }
