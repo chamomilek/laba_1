@@ -25,6 +25,11 @@ public abstract class Food implements Consumable, Nutritious
     {
         return name;
     }
+    public Integer getCalories()
+    {
+        return calories;
+    }
+
     public void setName(String name)
     {
         this.name=name;
