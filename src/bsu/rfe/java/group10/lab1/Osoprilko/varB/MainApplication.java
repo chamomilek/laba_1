@@ -42,6 +42,6 @@ public class MainApplication {
             }
 
         System.out.println("Общее число калорий: " + totalCalories);
-        System.out.println("Всего хорошего!");
+        System.out.println("Всего доброго!");
     }
 }
